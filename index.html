@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather</title>
+  <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="master.css">
+</head>
+<body class="bg-dark text-light">
+
+  <nav class="navbar navbar-expand-lg navbar-dark  ">
+    <a class="navbar-brand" href="#">
+      <img src="image/cloudy.png" width="60" height="60" alt="">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+         
+        <li class="nav-item">
+          <a class="nav-link" href="#Contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container mt-5 home text-center">
+    <div class="row">
+      <div class="col-12">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Find your location..." id="input">
+          <div class="input-group-append">
+            <button class="btn btn-primary" id="submit">Find</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row text-center ">
+      <div class="col-lg-12 col-md-12">
+        <div class="card text-center">
+          <div class="card-body">
+            <h5 class="card-title" id="day"></h5>
+            <p class="card-text">Weather Forecast</p>
+            <h3 class="display-4" id="temperature">TEMP: 0.0°C</h3>
+            <p class="card-text" id="weather">SKC :</p>
+            <p class="card-text" id="rain">Rain: 0.0% <i class="fas fa-tint"></i></p>
+            <p class="card-text" id="wind">WIND: 0.0 km/h <i class="fas fa-wind"></i>  </p>
+            <p class="card-text" id="humidity">RH: 0.0%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <footer class="text-center mt-5">
+    <div class="container">
+      <div class="mt-2">
+        <input type="email" class="form-control d-inline-block w-auto" placeholder="Enter your message ...">
+        <button class="btn btn-primary Subscribe" id="Contact">Sumbit</button>
+      </div>
+      <p class="mb-0">Copyright 2024 Company name. Designed by <a href="#">Mohamed Ibrahim </a>. All rights reserved</p>
+       
+      <div class="mt-3">
+        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-light ml-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-light ml-3"><i class="fab fa-google-plus-g"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="bootstrap-4.0.0-dist/js/jquery-3.7.1.min.js"></script>
+  <script src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
+  <script src="bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
