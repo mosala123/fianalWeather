@@ -1,57 +1,92 @@
+/* master.css - كما هو من الرد السابق */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 html, body {
-  height: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  background-color: #34495E;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #f0f0f0;
 }
+
 .navbar {
-  margin-bottom: 30px;
-  padding: 10px 40px ;
-  background-color: #2C3E50;
-}
-.navbar a{
-  font-size: 24px;
-  transition: 0.4s ease ;
-  border-radius: 20px ;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
- 
- 
-.card {
-  background-color: #34495E;
-  color: #ECF0F1;
-}
-.container {
-  flex: 1;
-}
-.Subscribe{
-  margin: 20px 0 ;
-}
-footer {
-  background-color: #2C3E50;
-  color: #ECF0F1;
-  padding: 20px 0;
-  text-align: center;
-  width: 100%;
+    background-color: rgba(0, 0, 0, 0.2) !important;
+    backdrop-filter: blur(10px);
+    padding: 15px 40px;
 }
 
-@media (min-width: 768px) {
-  .card {
+.navbar-brand {
+    font-weight: 600;
     font-size: 1.5rem;
-  }
+    display: flex;
+    align-items: center;
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.weather-card:hover {
+    transform: translateY(-10px);
+}
+
+.weather-icon i {
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.search-card .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    border-radius: 30px 0 0 30px;
+}
+
+.search-card .btn-primary {
+    background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+    border: none;
+    border-radius: 0 30px 30px 0;
+}
+
+.alert {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: none;
+    color: white;
+    border-radius: 50px;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    color: #ecf0f1;
+    padding: 20px 0;
+    margin-top: auto;
 }
 
 @media (max-width: 768px) {
-  .card {
-    font-size: 1rem;
-  }
+    .navbar { padding: 10px 20px; }
+    .weather-card .display-3 { font-size: 3rem; }
 }
-
-
-  

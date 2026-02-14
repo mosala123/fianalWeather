@@ -3,17 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Weather</title>
-  <link rel="stylesheet" href="bootstrap-4.0.0-dist/css/bootstrap.css">
+  <title>Weather Now</title>
+  <!-- Bootstrap 4.5.2 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="master.css">
 </head>
-<body class="bg-dark text-light">
+<body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark  ">
+  <!-- Simple Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
     <a class="navbar-brand" href="#">
-      <img src="image/cloudy.png" width="60" height="60" alt="">
+      <img src="https://img.icons8.com/fluent/48/000000/cloud.png" width="40" height="40" alt="Weather Logo">
+      <span class="ml-2">Weather Now</span>
     </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -21,62 +26,96 @@
         <li class="nav-item active">
           <a class="nav-link" href="#">Home</a>
         </li>
-         
-        <li class="nav-item">
-          <a class="nav-link" href="#Contact">Contact</a>
-        </li>
+        <!-- Contact link removed -->
       </ul>
     </div>
   </nav>
 
-  <div class="container mt-5 home text-center">
+  <!-- Main Content -->
+  <main class="container mt-4 mt-md-5">
+    <!-- Welcome Alert -->
     <div class="row">
       <div class="col-12">
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Find your location..." id="input">
-          <div class="input-group-append">
-            <button class="btn btn-primary" id="submit">Find</button>
-          </div>
+        <div class="alert alert-info text-center" id="statusAlert">
+          <i class="fas fa-map-marker-alt mr-2"></i> Getting your location for local weather...
         </div>
       </div>
     </div>
-    <div class="row text-center ">
-      <div class="col-lg-12 col-md-12">
-        <div class="card text-center">
-          <div class="card-body">
-            <h5 class="card-title" id="day"></h5>
-            <p class="card-text">Weather Forecast</p>
-            <h3 class="display-4" id="temperature">TEMP: 0.0°C</h3>
-            <p class="card-text" id="weather">SKC :</p>
-            <p class="card-text" id="rain">Rain: 0.0% <i class="fas fa-tint"></i></p>
-            <p class="card-text" id="wind">WIND: 0.0 km/h <i class="fas fa-wind"></i>  </p>
-            <p class="card-text" id="humidity">RH: 0.0%</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-  </div>
 
+    <!-- Search Bar -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="input-group mb-4 search-card">
+          <input type="text" class="form-control" id="cityInput" placeholder="Search for a city..." aria-label="City name">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="searchBtn">
+              <i class="fas fa-search"></i> Search
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Weather Card -->
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <div class="card weather-card text-center">
+          <div class="card-body">
+            <!-- Weather Icon -->
+            <div class="weather-icon mb-3">
+              <i class="fas fa-sun fa-4x" id="weatherIcon"></i>
+            </div>
+            <!-- Location and Date -->
+            <h5 class="card-title" id="locationInfo">... Loading</h5>
+            <p class="card-text text-muted" id="weatherDesc">...</p>
+            <!-- Temperature -->
+            <div class="display-3 my-3" id="temperature">--°C</div>
+            <!-- Details in 3 columns -->
+            <div class="row mt-4">
+              <div class="col-4">
+                <i class="fas fa-tint text-info"></i>
+                <p class="mb-0 small">Humidity</p>
+                <span id="humidity">--%</span>
+              </div>
+              <div class="col-4">
+                <i class="fas fa-wind text-secondary"></i>
+                <p class="mb-0 small">Wind</p>
+                <span id="wind">-- km/h</span>
+              </div>
+              <div class="col-4">
+                <i class="fas fa-cloud-rain text-primary"></i>
+                <p class="mb-0 small">Rain</p>
+                <span id="rain">--%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Loading Spinner -->
+        <div class="text-center mt-4" id="loadingSpinner" style="display: none;">
+          <div class="spinner-border text-light" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Simple Footer (no Contact) -->
   <footer class="text-center mt-5">
     <div class="container">
+      <p class="mb-0">&copy; 2024 <span class="text-warning">Weather Now</span>. All rights reserved.</p>
       <div class="mt-2">
-        <input type="email" class="form-control d-inline-block w-auto" placeholder="Enter your message ...">
-        <button class="btn btn-primary Subscribe" id="Contact">Sumbit</button>
-      </div>
-      <p class="mb-0">Copyright 2024 Company name. Designed by <a href="#">Mohamed Ibrahim </a>. All rights reserved</p>
-       
-      <div class="mt-3">
-        <a href="#" class="text-light"><i class="fab fa-facebook-f"></i></a>
-        <a href="#" class="text-light ml-3"><i class="fab fa-twitter"></i></a>
-        <a href="#" class="text-light ml-3"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="text-light mx-2"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="text-light mx-2"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-light mx-2"><i class="fab fa-instagram"></i></a>
       </div>
     </div>
   </footer>
 
-  <script src="bootstrap-4.0.0-dist/js/jquery-3.7.1.min.js"></script>
-  <script src="bootstrap-4.0.0-dist/js/popper.min.js"></script>
-  <script src="bootstrap-4.0.0-dist/js/bootstrap.js"></script>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
